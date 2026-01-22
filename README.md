@@ -9,8 +9,10 @@ The system uses a Supervisor node to delegate tasks to specialized subgraphs bas
 ```mermaid
 graph TD
     User[User Input] --> Supervisor
-    Supervisor --"Fetch Location"--> LocationTool[Location Subgraph]
-    Supervisor --"Fetch Weather"--> WeatherTool[Weather Subgraph]
+    Supervisor -. "Fetch Location".-> LocationTool[Location Subgraph]
+    Supervisor -. "Fetch Weather".-> WeatherTool[Weather Subgraph]
+    WeatherTool[Weather Subgraph] --> Supervisor
+     LocationTool[Location Subgraph] --> Supervisor
 ```
 
 ## ⚡ Tech Stack & APIs
